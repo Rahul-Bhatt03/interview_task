@@ -49,7 +49,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }: SideBarProps) => {
             </button>
             </div>
 
-            {/* navigation */}
+          
                <nav className="flex-1 p-4 space-y-2 overflow-y-auto">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -76,7 +76,6 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }: SideBarProps) => {
             })}
           </nav>
 
-           {/* User Profile */}
           <div className="p-4 border-t border-slate-700">
             <div className="flex items-center space-x-3 p-3 rounded-lg bg-slate-700/30">
               <div className="w-10 h-10 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center">
