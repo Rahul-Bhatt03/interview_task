@@ -1,4 +1,4 @@
-export const Dashboard = () => {
+export const Products = () => {
   return (
     <div className="space-y-6">
       <div>
