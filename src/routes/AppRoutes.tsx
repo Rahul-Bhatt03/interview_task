@@ -2,7 +2,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Layout } from "../components/layout/Layout";
 
-const Home = lazy(() => import('../pages/Home').then(module => ({ default: module.Products })))
+const Home = lazy(() => import('../pages/Products').then(module => ({ default: module.Products })))
 const Users = lazy(() => import('../pages/User').then(module => ({ default: module.Users })));
 const Medicines = lazy(() => import('../pages/Medicines').then(module => ({ default: module.Medicines })));
 
