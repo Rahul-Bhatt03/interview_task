@@ -26,7 +26,7 @@ export const Sidebar = ({ isMobileOpen, setIsMobileOpen }: SideBarProps) => {
     <aside
      className={`
           fixed lg:static inset-y-0 left-0 z-50
-          w-64 lg:w-[10%] min-w-[200px] lg:min-w-0
+          w-64 lg:w-[15%] min-w-[200px] lg:min-w-0
           bg-gradient-to-b from-slate-900 to-slate-800
           border-r border-slate-700
           transform transition-transform duration-300 ease-in-out
