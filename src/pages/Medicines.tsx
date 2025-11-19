@@ -3,7 +3,7 @@ import { useGetMedicinesQuery } from '../features/medicines/medicineSlice';
 import { MedicineTable } from '../components/table/MedicineTable';
 import { MedicineFilters } from '../components/ui/MedicineFilters';
 import { Pagination } from '../components/table/Pagination';
-import { Pill, AlertCircle } from 'lucide-react';
+import { Pill, AlertCircle, Loader2 } from 'lucide-react';
 
 export const Medicines: React.FC = () => {
     const [currentPage, setCurrentPage] = useState(1);
@@ -40,6 +40,23 @@ export const Medicines: React.FC = () => {
         setCurrentPage(page);
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+ 
+    if (isLoading) {
+        return (
+            <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+                <div className="text-center">
+                    <Loader2 className="w-12 h-12 text-blue-600 animate-spin mx-auto mb-4" />
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        Loading Medicines...
+                    </h3>
+                    <p className="text-gray-600">
+                        Please wait while we fetch the medicine inventory
+                    </p>
+                </div>
+            </div>
+        );
+    }
 
     if (isError) {
         return (
@@ -101,7 +118,7 @@ export const Medicines: React.FC = () => {
                     </div>
                 </div>
 
-
+             
                 <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm mb-6">
                     <MedicineFilters
                         searchTerm={searchTerm}
@@ -112,9 +129,7 @@ export const Medicines: React.FC = () => {
                 </div>
 
                 <div className="bg-white rounded-lg shadow-sm overflow-hidden">
-                    {isLoading ? (
-                        <MedicineTable medicines={[]} isLoading={true} />
-                    ) : filteredMedicines.length === 0 ? (
+                    {filteredMedicines.length === 0 ? (
                         <div className="p-12 text-center">
                             <Pill className="w-16 h-16 text-gray-300 mx-auto mb-4" />
                             <h3 className="text-lg font-semibold text-gray-900 mb-2">No Medicines Found</h3>
